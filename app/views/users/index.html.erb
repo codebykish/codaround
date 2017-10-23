@@ -3,3 +3,9 @@
 <% @users.each do |user| %>
 <%= user %>
 <% end %>
+
+<% if @user.admin?%>
+  <h1>For Admin only</h1>
+<% else %>
+  <h1>For student only</h1>
+<% end %>

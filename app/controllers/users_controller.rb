@@ -9,10 +9,14 @@ class UsersController < ApplicationController
   def update
     find_user
 
-    if @found_user.update_attributes(user_params)
-      redirect_to users_path
-    else
-      render "edit",  notice: "Try again!"
+    respond_to do |format|
+      if @found_user.update_attributes(user_params)
+        format.html { redirect_to users_path, notice: "Succes!" }
+        format.json { render json: @found_user, status: 200 }
+      else
+        format.html {render "edit",  notice: "Try again!" }
+        format.json { render json: @found_user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -22,6 +26,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :admin)
+    params.require(:user).permit(:name, :admin, :id)
 end
 end

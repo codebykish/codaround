@@ -3,17 +3,16 @@
 <h3> This page is intended for admins only, please do not show this to students! </h3>
 
     <ul id="student-list">
+      <% i = 1 %>
+      <% @users.each do |user| %>
       <li class="student">
-        <input id="student-1" type="checkbox">
-        <label for="student-1"><%=student.name%></label>
-      </li>
-      <li class="student admin">
-        <input id="student-2" type="checkbox" checked="checked">
-        <label for="student-2">Dust the vases</label>
-      </li>
+        <input id="student-<%= i %>" type="checkbox">
+        <label for="student-<%= i %>"><%=user.name%></label>
+        <% i += 1 %>
+      <% end %>
     </ul>
     <div class="footer">
-      Todo: <span id="student-count">1</span> 
+      Todo: <span id="student-count">1</span>
       Done: <span id="admin-count">0</span>
       Total: <span id="total-count">1</span>
     </div>

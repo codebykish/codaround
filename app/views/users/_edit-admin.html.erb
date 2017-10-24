@@ -1,0 +1,11 @@
+<% @users.each do |user| %>
+  <li><%= user.name %></li>
+  if !user.admin?
+    <%= form_for user do |f| %>
+      <%= f.check_box :admin %> make admin
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <%= end %>
+    <% else %>
+      <%= is admin %>
+    <% end %>
+<% end %>

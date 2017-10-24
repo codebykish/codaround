@@ -1,11 +1,22 @@
 <h1>Users</h1>
 
-<% @users.each do |user| %>
-<%= user %>
-<% end %>
+<h3> This page is intended for admins only, please do not show this to students! </h3>
 
 <% if @user.admin?%>
-  <h1>For Admin only</h1>
+  <%= form_for @user do |f| %>
+    <% @users.each do |user| %>
+      <li><%= user.name %></li>
+      <% if !user.admin? %>
+        <%= f.check_box :admin, checked: false %> admin
+        <%= f.submit "Save", class: "btn btn-primary"%>
+      <% else %>
+      <%= f.check_box :admin, checked: true %> admin
+      <%= f.submit "Save", class: "btn btn-primary"%>
+      <% end %>
+    <% end %>
+  <% end %>
 <% else %>
-  <h1>For student only</h1>
+  <h1>For students only</h1>
 <% end %>
+
+<%= link_to "Back", root_path, class: "btn btn-danger" %>

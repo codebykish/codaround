@@ -1,7 +1,3 @@
-function updateCounters(){
-
-}
-
 function toggleAdmin() {
   var checkbox = this;
 
@@ -10,5 +6,4 @@ function toggleAdmin() {
 
 $(document).ready(function() {
   $("input[type=checkbox]").bind('change', toggleAdmin);
-  updateCounters();
 });

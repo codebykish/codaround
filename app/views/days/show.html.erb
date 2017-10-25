@@ -1,1 +1,6 @@
-<h1><%= @day.day %></h1>
+<h1>Day: <%= @day.day %></h1>
+
+<% if current_user.admin? %>
+  <h3> Show all pairs for this day </h3>
+  
+<% end %>

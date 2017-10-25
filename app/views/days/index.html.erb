@@ -3,3 +3,6 @@
 <% @days.each do |day| %>
   <li><%= link_to day.day, day %></li>
 <% end %>
+
+<% if current_user.admin? %>
+  <% @users

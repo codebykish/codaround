@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023120034) do
+ActiveRecord::Schema.define(version: 20171025114856) do
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "days", force: :cascade do |t|
+    t.integer "pair_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pair_id"], name: "index_days_on_pair_id"
+  end
+
+  create_table "pairs", force: :cascade do |t|
+    t.date "day"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pairs_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|

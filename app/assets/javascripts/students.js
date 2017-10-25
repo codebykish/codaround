@@ -17,9 +17,6 @@ function toggleAdmin() {
     dataType: "json"
   })
   .done(function(data) {
-    console.log(Object.keys(data));
-
-
     $(checkbox).toggleClass("admin", data.admin);
   })
   .fail(function(err) {

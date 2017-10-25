@@ -1,3 +1,3 @@
 class Day < ApplicationRecord
-  belongs_to :pair
+  has_many :pairs
 end

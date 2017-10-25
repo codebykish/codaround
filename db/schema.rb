@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025114856) do
+ActiveRecord::Schema.define(version: 20171025121746) do
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20171025114856) do
     t.integer "pair_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "day"
     t.index ["pair_id"], name: "index_days_on_pair_id"
   end
 

@@ -24,6 +24,8 @@ User.create!([
   {name: "Bruna", email: "piet@piet20.com", password: 123456, admin: false},
 
 
-],
+])
 
-)
+(1..50).each do |day|
+  Day.create!(date: date.(today + day));
+end

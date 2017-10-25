@@ -25,7 +25,3 @@ User.create!([
 
 
 ])
-
-(1..50).each do |day|
-  Day.create!(date: date.(today + day));
-end

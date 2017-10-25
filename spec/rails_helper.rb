@@ -7,10 +7,10 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 
 Shoulda::Matchers.configure do |config|
-config.integrate do |with|
-  with.test_framework :rspec
-  with.library :rails
-end
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
